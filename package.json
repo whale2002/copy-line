@@ -2,7 +2,7 @@
   "name": "line-plugin",
   "displayName": "Line Plugin",
   "publisher": "qinhaoyu",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Copy file path and line numbers to clipboard. Perfect for collaborating with AI assistants to locate code.",
   "engines": {
     "vscode": "^1.106.0"
