@@ -1,11 +1,11 @@
 {
   "name": "line-plugin",
   "displayName": "Line Plugin",
-  "publisher": "haoyu.qin",
+  "publisher": "qinhaoyu",
   "version": "0.0.1",
   "description": "Copy file path and line numbers to clipboard. Perfect for collaborating with AI assistants to locate code.",
   "engines": {
-    "vscode": "^1.80.0"
+    "vscode": "^1.106.0"
   },
   "categories": [
     "Other"
@@ -32,6 +32,7 @@
     "url": "https://github.com/whale2002/line-plugin/issues"
   },
   "homepage": "https://github.com/whale2002/line-plugin#readme",
+  "icon": "icon.png",
   "contributes": {
     "commands": [
       {
