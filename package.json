@@ -1,0 +1,110 @@
+{
+  "name": "line-plugin",
+  "displayName": "Line Plugin",
+  "publisher": "haoyu.qin",
+  "version": "0.0.1",
+  "description": "Copy file path and line numbers to clipboard. Perfect for collaborating with AI assistants to locate code.",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "copy",
+    "file",
+    "line",
+    "ai",
+    "assistant",
+    "reference",
+    "path",
+    "行号",
+    "文件名",
+    "AI助手"
+  ],
+  "license": "MIT",
+  "main": "./out/extension.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/whale2002/line-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/whale2002/line-plugin/issues"
+  },
+  "homepage": "https://github.com/whale2002/line-plugin#readme",
+  "contributes": {
+    "commands": [
+      {
+        "command": "line-plugin.copySelectionReference",
+        "title": "复制选中文件与行号",
+        "icon": "$(go-to-file)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "line-plugin.copySelectionReference",
+          "when": "editorTextFocus",
+          "group": "line-plugin@1"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "line-plugin.copySelectionReference",
+          "when": "editorTextFocus",
+          "group": "line-plugin@1"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "line-plugin.copySelectionReference",
+        "key": "cmd+alt+l",
+        "mac": "cmd+alt+l",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Line Plugin",
+      "properties": {
+        "line-plugin.outputFormat": {
+          "type": "string",
+          "enum": ["labeled", "compact", "code-style", "natural"],
+          "default": "labeled",
+          "description": "输出格式：labeled(如: File: src/file.ts (line 24-30)), compact(如: src/file.ts:24-30), code-style(如: src/file.ts:24:30), natural(如: 在 src/file.ts 的第 24 行)"
+        },
+        "line-plugin.useAbsolutePath": {
+          "type": "boolean",
+          "default": false,
+          "description": "使用绝对路径而非相对路径"
+        },
+        "line-plugin.showStatusMessage": {
+          "type": "boolean",
+          "default": true,
+          "description": "复制后显示状态栏提示消息"
+        },
+        "line-plugin.singleLineFormat": {
+          "type": "string",
+          "default": "line ${line}",
+          "description": "单行选择时的格式"
+        },
+        "line-plugin.multiLineFormat": {
+          "type": "string",
+          "default": "line ${start}-${end}",
+          "description": "多行选择时的格式"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -w -p .",
+    "vscode:prepublish": "tsc -p ."
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.25",
+    "@types/vscode": "^1.106.1",
+    "typescript": "^5.9.3"
+  }
+}
