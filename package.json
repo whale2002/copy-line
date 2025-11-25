@@ -1,6 +1,6 @@
 {
-  "name": "line-plugin",
-  "displayName": "Line Plugin",
+  "name": "copy-line",
+  "displayName": "Copy Line",
   "publisher": "qinhaoyu",
   "version": "0.0.2",
   "description": "Copy file path and line numbers to clipboard. Perfect for collaborating with AI assistants to locate code.",
@@ -26,17 +26,17 @@
   "main": "./out/extension.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/whale2002/line-plugin.git"
+    "url": "https://github.com/whale2002/copy-line.git"
   },
   "bugs": {
-    "url": "https://github.com/whale2002/line-plugin/issues"
+    "url": "https://github.com/whale2002/copy-line/issues"
   },
-  "homepage": "https://github.com/whale2002/line-plugin#readme",
+  "homepage": "https://github.com/whale2002/copy-line#readme",
   "icon": "icon.png",
   "contributes": {
     "commands": [
       {
-        "command": "line-plugin.copySelectionReference",
+        "command": "copy-line.copySelectionReference",
         "title": "复制选中文件与行号",
         "icon": "$(go-to-file)"
       }
@@ -44,22 +44,22 @@
     "menus": {
       "editor/context": [
         {
-          "command": "line-plugin.copySelectionReference",
+          "command": "copy-line.copySelectionReference",
           "when": "editorTextFocus",
-          "group": "line-plugin@1"
+          "group": "copy-line@1"
         }
       ],
       "editor/title": [
         {
-          "command": "line-plugin.copySelectionReference",
+          "command": "copy-line.copySelectionReference",
           "when": "editorTextFocus",
-          "group": "line-plugin@1"
+          "group": "copy-line@1"
         }
       ]
     },
     "keybindings": [
       {
-        "command": "line-plugin.copySelectionReference",
+        "command": "copy-line.copySelectionReference",
         "key": "cmd+alt+l",
         "mac": "cmd+alt+l",
         "when": "editorTextFocus"
@@ -67,30 +67,30 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "Line Plugin",
+      "title": "Copy Line",
       "properties": {
-        "line-plugin.outputFormat": {
+        "copy-line.outputFormat": {
           "type": "string",
           "enum": ["labeled", "compact", "code-style", "natural"],
           "default": "labeled",
           "description": "输出格式：labeled(如: File: src/file.ts (line 24-30)), compact(如: src/file.ts:24-30), code-style(如: src/file.ts:24:30), natural(如: 在 src/file.ts 的第 24 行)"
         },
-        "line-plugin.useAbsolutePath": {
+        "copy-line.useAbsolutePath": {
           "type": "boolean",
           "default": false,
           "description": "使用绝对路径而非相对路径"
         },
-        "line-plugin.showStatusMessage": {
+        "copy-line.showStatusMessage": {
           "type": "boolean",
           "default": true,
           "description": "复制后显示状态栏提示消息"
         },
-        "line-plugin.singleLineFormat": {
+        "copy-line.singleLineFormat": {
           "type": "string",
           "default": "line ${line}",
           "description": "单行选择时的格式"
         },
-        "line-plugin.multiLineFormat": {
+        "copy-line.multiLineFormat": {
           "type": "string",
           "default": "line ${start}-${end}",
           "description": "多行选择时的格式"

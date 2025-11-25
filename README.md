@@ -1,4 +1,4 @@
-# Line Plugin for VS Code
+# Copy Line for VS Code
 
 一个实用的 VS Code 插件，帮助开发者快速复制文件名和行号，特别适合与 AI 助手协作时定位代码。
 
@@ -20,7 +20,7 @@
 1. 打开 VS Code
 2. 按 `Cmd+Shift+P`（Mac）或 `Ctrl+Shift+P`（Windows/Linux）
 3. 输入 "Extensions: Install Extensions"
-4. 搜索 "Line Plugin"
+4. 搜索 "Copy Line"
 5. 点击安装
 
 ### 方法二：VSIX 包安装
@@ -64,7 +64,7 @@ src/extension.ts:24:30
 
 ## ⚙️ 配置选项
 
-在 VS Code 设置中搜索 "Line Plugin" 即可找到所有配置选项：
+在 VS Code 设置中搜索 "Copy Line" 即可找到所有配置选项：
 
 ### outputFormat
 输出格式类型，默认值：`labeled`
@@ -124,11 +124,11 @@ File: src/api/client.ts (line 88-95)
 
 ```json
 {
-  "line-plugin.outputFormat": "natural",
-  "line-plugin.useAbsolutePath": true,
-  "line-plugin.singleLineFormat": "第 ${line} 行",
-  "line-plugin.multiLineFormat": "第 ${start} 到 ${end} 行",
-  "line-plugin.showStatusMessage": false
+  "copy-line.outputFormat": "natural",
+  "copy-line.useAbsolutePath": true,
+  "copy-line.singleLineFormat": "第 ${line} 行",
+  "copy-line.multiLineFormat": "第 ${start} 到 ${end} 行",
+  "copy-line.showStatusMessage": false
 }
 ```
 

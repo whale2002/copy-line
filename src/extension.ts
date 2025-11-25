@@ -36,7 +36,7 @@ function formatSelection(sel: vscode.Selection, useAbsolutePath: boolean, output
   const start = sel.start.line + 1
   const end = sel.end.line + 1
 
-  const config = vscode.workspace.getConfiguration('line-plugin')
+  const config = vscode.workspace.getConfiguration('copy-line')
   const singleLineFormat = config.get('singleLineFormat', 'line ${line}')
   const multiLineFormat = config.get('multiLineFormat', 'line ${start}-${end}')
 
@@ -60,11 +60,11 @@ function formatSelection(sel: vscode.Selection, useAbsolutePath: boolean, output
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  const disposable = vscode.commands.registerCommand('line-plugin.copySelectionReference', async () => {
+  const disposable = vscode.commands.registerCommand('copy-line.copySelectionReference', async () => {
     const editor = vscode.window.activeTextEditor
     if (!editor) return
 
-    const config = vscode.workspace.getConfiguration('line-plugin')
+    const config = vscode.workspace.getConfiguration('copy-line')
     const outputFormat = config.get('outputFormat', 'labeled')
     const useAbsolutePath = config.get('useAbsolutePath', false)
     const showStatusMessage = config.get('showStatusMessage', true)
